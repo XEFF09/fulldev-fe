@@ -3,7 +3,7 @@ import React from 'react'
 
 const Profile = () => {
   return (
-    <View className='flex justify-center items-center h-[100vh]'>
+    <View>
       <Text>Profile</Text>
     </View>
   )
