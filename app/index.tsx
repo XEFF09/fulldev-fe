@@ -1,16 +1,25 @@
-import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList,
+} from "react-native";
+import React, { useState, useEffect } from "react";
 import { Redirect, router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { images } from '@/constants';
-import CustomButton from '@/components/customs/CustomButton'
-import { StatusBar } from 'expo-status-bar'
+import { images } from "@/constants";
+import CustomButton from "@/components/customs/CustomButton";
+import { StatusBar } from "expo-status-bar";
+
+import { supabase } from "@/lib/supabase";
 
 const HomePage = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
-      <ScrollView contentContainerStyle={{ height: '100%'}}>
+      <ScrollView contentContainerStyle={{ height: "100%" }}>
         <View className="w-full justify-center items-center min-h-[85vh] px-4">
           <Image
             source={images.logo}
@@ -24,7 +33,7 @@ const HomePage = () => {
           />
           <View className="relative mt-5">
             <Text className="text-4xl text-white font-bold text-center">
-              Discover Endless Possiblities with {''}
+              Discover Endless Possiblities with {""}
               <Text className="text-secondary-200">Aora</Text>
             </Text>
             <Image
@@ -33,24 +42,21 @@ const HomePage = () => {
               resizeMode="contain"
             />
           </View>
-          
+
           <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
-            Where creativity meets innovation: embark on a journey of limitless exploration with Aora
+            Where creativity meets innovation: embark on a journey of limitless
+            exploration with Aora
           </Text>
 
           <CustomButton
             title="Continue with Email"
-            handlePress={() => router.push('/sign-in')}
+            handlePress={() => router.push("/sign-in")}
             containerStyles="w-full mt-7"
             isLoading={false}
           />
         </View>
       </ScrollView>
-
-      <StatusBar
-        backgroundColor="#161622"
-        style="light"
-      />
+      <StatusBar backgroundColor="#161622" style="light" />
     </SafeAreaView>
   );
 };
